@@ -1,0 +1,227 @@
+.sr-panel {
+  min-width: 0;
+  overflow: hidden;
+  padding: clamp(16px, 2vw, 25px);
+  color: #183d34;
+  background: #fff;
+}
+.sr-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 16px;
+}
+.sr-heading-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border-radius: 11px;
+  background: #e4f0e9;
+  color: #22685a;
+}
+.sr-header h2 {
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  font-weight: 750;
+}
+.sr-header p {
+  margin: 4px 0 0;
+  color: #596e64;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+.sr-stage {
+  position: relative;
+  width: 100%;
+  height: clamp(225px, 24vw, 332px);
+  isolation: isolate;
+  border-radius: 13px;
+  overflow: hidden;
+  background: radial-gradient(
+    ellipse at 50% 80%,
+    #345850 0%,
+    #24443e 48%,
+    #142f2c 100%
+  );
+}
+.sr-stage:before {
+  content: "";
+  position: absolute;
+  inset: -45%;
+  transform: perspective(460px) rotateX(56deg) rotateZ(-31deg);
+  background-image:
+    linear-gradient(#bbf9de0b 1px, transparent 1px),
+    linear-gradient(90deg, #bbf9de0b 1px, transparent 1px);
+  background-size: 25px 25px;
+  pointer-events: none;
+}
+.sr-webgl {
+  position: absolute;
+  inset: 0;
+  touch-action: pan-y;
+  cursor: grab;
+}
+.sr-webgl:active {
+  cursor: grabbing;
+}
+.sr-webgl canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.sr-orbit {
+  position: absolute;
+  right: 9px;
+  bottom: 9px;
+  display: flex;
+  gap: 3px;
+}
+.sr-orbit button,
+.sr-play {
+  display: grid;
+  place-items: center;
+  border: 0;
+  cursor: pointer;
+}
+.sr-orbit button {
+  width: 27px;
+  height: 27px;
+  border-radius: 6px;
+  background: #15352fed;
+  border: 1px solid #a1c6b665;
+  color: #dbece3;
+}
+.sr-orbit button:hover {
+  background: #406158;
+}
+.sr-transport {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 13px 0;
+}
+.sr-play {
+  background: #1d6253;
+  color: white;
+  border-radius: 50%;
+  width: 33px;
+  height: 33px;
+  flex: none;
+}
+.sr-play:hover {
+  background: #184e44;
+}
+.sr-play:focus-visible,
+.sr-orbit button:focus-visible,
+.sr-transport input:focus-visible {
+  outline: 3px solid #da954a;
+  outline-offset: 2px;
+}
+.sr-transport input {
+  width: 0;
+  flex: 1;
+  min-width: 40px;
+  accent-color: #26705e;
+  cursor: pointer;
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+.sr-clock {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  color: #4d675b;
+}
+.sr-stations {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 10px;
+  row-gap: 6px;
+}
+.sr-station {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 5px 0;
+}
+.sr-symbol {
+  display: grid;
+  place-items: center;
+  width: 29px;
+  height: 29px;
+  flex: none;
+  border-radius: 8px;
+  color: #49625c;
+  background: #edf2ef;
+}
+.sr-active .sr-symbol {
+  background: color-mix(in srgb, var(--station-color) 38%, white);
+  color: #284138;
+}
+.sr-station > div {
+  min-width: 0;
+}
+.sr-station b,
+.sr-station small {
+  display: block;
+  line-height: 1.35;
+}
+.sr-station b {
+  font-size: 0.75rem;
+}
+.sr-station small {
+  color: #587064;
+  font-size: 0.71rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sr-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #d8ecdf;
+  font-size: 0.84rem;
+}
+.sr-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 18px;
+  gap: 8px;
+}
+.sr-fallback > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid #78958c;
+  border-radius: 12px;
+  color: #bdd1c9;
+  font-size: 0.78rem;
+  background: #22453b;
+}
+.sr-fallback > div.sr-on {
+  color: var(--station-color);
+  border-color: var(--station-color);
+}
+.sr-visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+}

@@ -1,0 +1,487 @@
+[
+  {
+    "id": "empty",
+    "name": "Empty queue",
+    "description": "A single burger arrives during a quiet service. All four stations are available.",
+    "order": [
+      {
+        "id": "burger",
+        "dish": "Burger",
+        "quantity": 1,
+        "complexity": 3,
+        "depends_on": []
+      }
+    ],
+    "pending": [],
+    "active": [],
+    "capacities": {
+      "Grill": 1,
+      "Oven": 1,
+      "Prep": 1,
+      "Beverage": 1
+    },
+    "staff": 3,
+    "workload": 18,
+    "period": "Afternoon",
+    "day": "Tuesday"
+  },
+  {
+    "id": "normal",
+    "name": "Lunch service",
+    "description": "A burger and coffee arrive behind two lunch tickets while the prep counter is occupied.",
+    "order": [
+      {
+        "id": "burger",
+        "dish": "Burger",
+        "quantity": 1,
+        "complexity": 3,
+        "depends_on": []
+      },
+      {
+        "id": "coffee",
+        "dish": "Coffee",
+        "quantity": 2,
+        "complexity": 1,
+        "depends_on": []
+      }
+    ],
+    "pending": [
+      {
+        "id": "L-204",
+        "accepted": -5,
+        "items": [
+          {
+            "id": "sandwich",
+            "dish": "Sandwich",
+            "quantity": 1,
+            "complexity": 2,
+            "depends_on": []
+          }
+        ]
+      },
+      {
+        "id": "L-205",
+        "accepted": -2,
+        "items": [
+          {
+            "id": "grill",
+            "dish": "Burger",
+            "quantity": 2,
+            "complexity": 3,
+            "depends_on": []
+          }
+        ]
+      }
+    ],
+    "active": [
+      {
+        "station": "Prep",
+        "remaining": 4
+      }
+    ],
+    "capacities": {
+      "Grill": 1,
+      "Oven": 1,
+      "Prep": 1,
+      "Beverage": 1
+    },
+    "staff": 3,
+    "workload": 62,
+    "period": "Lunch",
+    "day": "Tuesday"
+  },
+  {
+    "id": "rush",
+    "name": "Dinner rush",
+    "description": "A family order joins a Friday dinner queue. The grill, oven and beverage counter are already in use.",
+    "order": [
+      {
+        "id": "burgers",
+        "dish": "Burger",
+        "quantity": 3,
+        "complexity": 4,
+        "depends_on": []
+      },
+      {
+        "id": "pizza",
+        "dish": "Pizza",
+        "quantity": 1,
+        "complexity": 4,
+        "depends_on": []
+      },
+      {
+        "id": "drinks",
+        "dish": "Smoothie",
+        "quantity": 2,
+        "complexity": 2,
+        "depends_on": []
+      }
+    ],
+    "pending": [
+      {
+        "id": "D-318",
+        "accepted": -12,
+        "items": [
+          {
+            "id": "pizza",
+            "dish": "Pizza",
+            "quantity": 2,
+            "complexity": 4,
+            "depends_on": []
+          }
+        ]
+      },
+      {
+        "id": "D-319",
+        "accepted": -9,
+        "items": [
+          {
+            "id": "burger",
+            "dish": "Burger",
+            "quantity": 3,
+            "complexity": 3,
+            "depends_on": []
+          },
+          {
+            "id": "drinks",
+            "dish": "Coffee",
+            "quantity": 2,
+            "complexity": 1,
+            "depends_on": []
+          }
+        ]
+      },
+      {
+        "id": "D-320",
+        "accepted": -6,
+        "items": [
+          {
+            "id": "wrap",
+            "dish": "Sandwich",
+            "quantity": 2,
+            "complexity": 3,
+            "depends_on": []
+          }
+        ]
+      },
+      {
+        "id": "D-321",
+        "accepted": -3,
+        "items": [
+          {
+            "id": "pies",
+            "dish": "Pizza",
+            "quantity": 1,
+            "complexity": 3,
+            "depends_on": []
+          },
+          {
+            "id": "shakes",
+            "dish": "Smoothie",
+            "quantity": 2,
+            "complexity": 2,
+            "depends_on": []
+          }
+        ]
+      }
+    ],
+    "active": [
+      {
+        "station": "Grill",
+        "remaining": 7
+      },
+      {
+        "station": "Oven",
+        "remaining": 10
+      },
+      {
+        "station": "Beverage",
+        "remaining": 3
+      }
+    ],
+    "capacities": {
+      "Grill": 1,
+      "Oven": 1,
+      "Prep": 1,
+      "Beverage": 1
+    },
+    "staff": 4,
+    "workload": 94,
+    "period": "Dinner",
+    "day": "Friday"
+  },
+  {
+    "id": "parallel",
+    "name": "Multi-dish order",
+    "description": "A party orders four dishes that can use four independent stations at the same time.",
+    "order": [
+      {
+        "id": "pizza",
+        "dish": "Pizza",
+        "quantity": 2,
+        "complexity": 3,
+        "depends_on": []
+      },
+      {
+        "id": "burgers",
+        "dish": "Burger",
+        "quantity": 2,
+        "complexity": 3,
+        "depends_on": []
+      },
+      {
+        "id": "sandwich",
+        "dish": "Sandwich",
+        "quantity": 1,
+        "complexity": 2,
+        "depends_on": []
+      },
+      {
+        "id": "coffee",
+        "dish": "Coffee",
+        "quantity": 2,
+        "complexity": 1,
+        "depends_on": []
+      }
+    ],
+    "pending": [],
+    "active": [],
+    "capacities": {
+      "Grill": 1,
+      "Oven": 1,
+      "Prep": 1,
+      "Beverage": 1
+    },
+    "staff": 4,
+    "workload": 34,
+    "period": "Dinner",
+    "day": "Saturday"
+  },
+  {
+    "id": "conflict",
+    "name": "Grill conflict",
+    "description": "Three tickets need the same single-slot grill. A drink can begin while the grill queue advances.",
+    "order": [
+      {
+        "id": "burger",
+        "dish": "Burger",
+        "quantity": 2,
+        "complexity": 4,
+        "depends_on": []
+      },
+      {
+        "id": "drink",
+        "dish": "Smoothie",
+        "quantity": 1,
+        "complexity": 2,
+        "depends_on": []
+      }
+    ],
+    "pending": [
+      {
+        "id": "G-41",
+        "accepted": -7,
+        "items": [
+          {
+            "id": "first",
+            "dish": "Burger",
+            "quantity": 2,
+            "complexity": 2,
+            "depends_on": []
+          }
+        ]
+      },
+      {
+        "id": "G-42",
+        "accepted": -4,
+        "items": [
+          {
+            "id": "second",
+            "dish": "Burger",
+            "quantity": 1,
+            "complexity": 3,
+            "depends_on": []
+          }
+        ]
+      }
+    ],
+    "active": [
+      {
+        "station": "Grill",
+        "remaining": 4.5
+      }
+    ],
+    "capacities": {
+      "Grill": 1,
+      "Oven": 1,
+      "Prep": 1,
+      "Beverage": 1
+    },
+    "staff": 3,
+    "workload": 71,
+    "period": "Lunch",
+    "day": "Tuesday"
+  },
+  {
+    "id": "capacity",
+    "name": "Limited oven capacity",
+    "description": "One oven serves several pizza batches while the grill has spare capacity.",
+    "order": [
+      {
+        "id": "thin",
+        "dish": "Pizza",
+        "quantity": 2,
+        "complexity": 3,
+        "depends_on": []
+      },
+      {
+        "id": "deep",
+        "dish": "Pizza",
+        "quantity": 1,
+        "complexity": 5,
+        "depends_on": []
+      }
+    ],
+    "pending": [
+      {
+        "id": "P-83",
+        "accepted": -8,
+        "items": [
+          {
+            "id": "pies",
+            "dish": "Pizza",
+            "quantity": 2,
+            "complexity": 4,
+            "depends_on": []
+          }
+        ]
+      }
+    ],
+    "active": [
+      {
+        "station": "Oven",
+        "remaining": 6
+      }
+    ],
+    "capacities": {
+      "Grill": 2,
+      "Oven": 1,
+      "Prep": 1,
+      "Beverage": 1
+    },
+    "staff": 4,
+    "workload": 77,
+    "period": "Dinner",
+    "day": "Tuesday"
+  },
+  {
+    "id": "complex",
+    "name": "High-complexity order",
+    "description": "A tasting menu releases dishes in sequence. The drink course can start as soon as the kitchen has room.",
+    "order": [
+      {
+        "id": "starter",
+        "dish": "Sandwich",
+        "quantity": 2,
+        "complexity": 3,
+        "depends_on": []
+      },
+      {
+        "id": "main",
+        "dish": "Pizza",
+        "quantity": 2,
+        "complexity": 5,
+        "depends_on": [
+          "starter"
+        ]
+      },
+      {
+        "id": "finish",
+        "dish": "Coffee",
+        "quantity": 2,
+        "complexity": 4,
+        "depends_on": [
+          "main"
+        ]
+      },
+      {
+        "id": "welcome",
+        "dish": "Smoothie",
+        "quantity": 2,
+        "complexity": 2,
+        "depends_on": []
+      }
+    ],
+    "pending": [],
+    "active": [],
+    "capacities": {
+      "Grill": 1,
+      "Oven": 1,
+      "Prep": 1,
+      "Beverage": 1
+    },
+    "staff": 3,
+    "workload": 48,
+    "period": "Dinner",
+    "day": "Saturday"
+  },
+  {
+    "id": "staff",
+    "name": "Reduced staffing",
+    "description": "A single cook covers four stations. Unrelated dishes must share the same staff member.",
+    "order": [
+      {
+        "id": "pizza",
+        "dish": "Pizza",
+        "quantity": 1,
+        "complexity": 3,
+        "depends_on": []
+      },
+      {
+        "id": "coffee",
+        "dish": "Coffee",
+        "quantity": 1,
+        "complexity": 1,
+        "depends_on": []
+      },
+      {
+        "id": "sandwich",
+        "dish": "Sandwich",
+        "quantity": 2,
+        "complexity": 2,
+        "depends_on": []
+      }
+    ],
+    "pending": [
+      {
+        "id": "S-19",
+        "accepted": -5,
+        "items": [
+          {
+            "id": "drink",
+            "dish": "Smoothie",
+            "quantity": 1,
+            "complexity": 2,
+            "depends_on": []
+          }
+        ]
+      }
+    ],
+    "active": [
+      {
+        "station": "Grill",
+        "remaining": 3
+      }
+    ],
+    "capacities": {
+      "Grill": 1,
+      "Oven": 1,
+      "Prep": 1,
+      "Beverage": 1
+    },
+    "staff": 1,
+    "workload": 70,
+    "period": "Morning",
+    "day": "Sunday"
+  }
+]
